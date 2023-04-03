@@ -1,0 +1,166 @@
+﻿@using BlogApp.Models.Dtos;
+@using BlogApp.Models.Entities;
+@model List<PostDto>
+@{
+    ViewData["Title"] = "WritersPostsEdit";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="blog-details-wrapper section-space--ptb_80">
+    <div class="container">
+        <div class="row row--17">
+            <div class="blog-details-col-8">
+
+                <div class="messonry-button section-space--mb_40">
+                    <button data-filter="*" class="is-checked"><span class="filter-text">All</span></button>
+                    <button data-filter=".cat--1"><span class="filter-text">Travel</span> </button>
+                    <button data-filter=".cat--2"><span class="filter-text">Lifestyle</span></button>
+                    <button data-filter=".cat--3"><span class="filter-text">Food</span> </button>
+                    <button data-filter=".cat--4"><span class="filter-text">Health</span></button>
+                </div>
+
+                <div class="masonry-activation">
+                    <div class="row mesonry-list">
+                        <div class="masonary-sizer col-1"></div>
+                        <!-- Author Blog Post Wrap Start -->
+                        @if (Model != null)
+                            @for (int i = 1; i < Model.Count; i++)
+                            {
+                                <div class="author-blog-post-wrap masonary-item cat--3">
+                                    <a href="~/home/editpost/@Model[i].Post.ID" class="author-blog-thum">
+                                        <a href="~/home/editpost/@Model[i].Post.ID">
+                                            @if (Model[i].Post.PhotoLink.StartsWith("https://"))
+                                            {
+                                                <img src=@Model[i].Post.PhotoLink alt="Hatali Link">
+                                            }
+                                            else
+                                            {
+                                                <img src="https://s3.amazonaws.com/pixpa.com/com/articles/1516553730-shutterstock_429631015.jpg" alt="Hatali Link">
+                                            }
+                                        </a>
+                                    </a>
+                                    <div class="author-blog-post-content">
+                                        <div class="blog-details-meta-box">
+                                            <div class="post-meta-left-side mb-2">
+                                                <div class="blog-post-category">
+                                                    <a href="#" class="btn-medium business mr-1">Business</a>
+                                                </div>
+                                                <div class="blog-post-author">
+                                                    By <a href="#">@Model[0].Writer.Name</a>
+                                                </div>
+                                            </div>
+                                            <div class="post-right-side mb-2">
+                                                <span class="post-meta-left-side">
+                                                    <span class="post-date">
+                                                        <i class="icofont-ui-calendar"></i>
+                                                        <a href="#">@Model[i].Post.PublishDate</a>
+                                                    </span>
+                                                </span>
+                                                <span>10 min read</span>
+                                            </div>
+                                        </div>
+                                        <h3 class="title mb-2">
+                                            <a href="~/home/editpost/@Model[i].Post.ID">
+                                                @Model[i].Post.Title
+                                            </a>
+                                        </h3>
+                                        <p class="mb-2">
+                                            @*@Model[i].Details.Substring(0,25);...*@
+                                            @Model[i].Post.Details;
+                                        </p>
+
+                                        <div class="author-post-bottom-area">
+                                            <div class="author-post-action-box">
+                                                <div class="author-action">
+                                                    <img src="~/home/assets/images/icons/heart-2.png" alt="">
+                                                    <span class="count">8,687</span>
+                                                </div>
+                                                <div class="author-action">
+                                                    <img src="~/home/assets/images/icons/message.png" alt="">
+                                                    <span class="count">9,567</span>
+                                                </div>
+                                            </div>
+                                            <div class="author-post-action-box">
+                                                <div class="author-action">
+                                                    <img src="~/home/assets/images/icons/small-bookmark.png" alt="">
+                                                </div>
+                                                <div class="author-action">
+                                                    <img src="~/home/assets/images/icons/download.png" alt="">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <!-- Author Blog Post Wrap End -->
+                            }
+                        <!-- Author Blog Post Wrap Start -->
+                    </div>
+                </div>
+            </div>
+            <div class="blog-details-col-4 sticky-top">
+                <div class="following-author-area">
+                    <div class="author-image" data-aos="fade-up">
+                        <img src="~/home/assets/images/author/author-01.png" alt="">
+                    </div>
+                    <div class="author-title">
+                        <h4><a href="#">@Model[0].Writer.Name</a></h4>
+                        <p>Author, Dingcode</p>
+                    </div>
+                    <div class="author-details">
+                        <p>
+                            Lorem psum has been industry
+                            standard dumy text since the when
+                            and scrambled make specimen
+                            book has survived.
+                        </p>
+
+                        <div class="author-post-share">
+                            <ul class="social-share-area">
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-skype"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="button-box">
+                            <a href="#" class="btn">View Profile <i class="icofont-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> <!-- Blog Details Wrapper End -->
+<!-- Trending Topic Area Start -->
+<div class="trending-topic-area bg-gray section-space--ptb_80">
+    <div class="container">
+        <!-- Newsletter Subscribe Area Start -->
+        <div class="newsletter-subscribe-inner section-space--mt_80" data-aos="fade-up">
+            <div class="row align-items-center">
+                <div class="col-lg-3">
+                    <div class="section-title mb-4">
+                        <h3>Subscribe For Newsletter</h3>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="newsletter-input-box">
+                        <input class="newsletter-input" type="text" placeholder="Enter your email">
+                        <div class="button-box">
+                            <a href="#" class="btn-primary btn-large">Subscribe Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="newsletter-inner-image">
+                <img class="newsletter-image-01" src="~/home/assets/images/shap/1-newsletter.png" alt="">
+                <img class="newsletter-image-02" src="~/home/assets/images/shap/2-newsletter.png" alt="">
+            </div>
+        </div>
+        <!-- Newsletter Subscribe Area End -->
+
+    </div>
+</div>

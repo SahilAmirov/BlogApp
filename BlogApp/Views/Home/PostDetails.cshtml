@@ -1,0 +1,133 @@
+﻿@using BlogApp.Models.Dtos;
+@using BlogApp.Models.Entities;
+@model PostDto
+@{
+    ViewData["Title"] = "PostDetails";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+<div class="blog-details-wrapper section-space--ptb_80">
+    <div class="container">
+        <div class="row row--17">
+            <div class="blog-details-col-8">
+                <!-- blog details Post Start -->
+                <div class="blog-details-post-wrap">
+                    <div class="blog-details-thum">
+                        @if (Model.Post.PhotoLink.StartsWith("https://"))
+                        {
+                            <img src=@Model.Post.PhotoLink alt="Hatali Link">
+                        }
+                        else
+                        {
+                            <img src="https://s3.amazonaws.com/pixpa.com/com/articles/1516553730-shutterstock_429631015.jpg" alt="Hatali Link">
+                        }
+                    </div>
+                    <div class="blog-details-post-content">
+                        <div class="blog-details-meta-box">
+                            <div class="post-meta-left-side mb-2">
+                                <div class="trending-blog-post-category">
+                                    <a href="#">@Model.Category.Name</a>
+                                </div>
+                                <div class="following-blog-post-author">
+                                    By <a href="#">@Model.Writer.Name</a>
+                                </div>
+                            </div>
+
+                            <div class="post-mid-side mb-2">
+                                <span class="post-meta-left-side">
+                                    <span class="post-date">
+                                        <i class="icofont-ui-calendar"></i>
+                                        <a href="#">@Model.Post.PublishDate</a>
+                                    </span>
+                                </span>
+                                <span>10 min read</span>
+                            </div>
+
+                            <div class="post-meta-right-side mb-2">
+                                <a href="#"><img src="~/home/assets/images/icons/small-bookmark.png" alt="" /></a>
+                                <a href="#"><img src="~/home/assets/images/icons/heart.png" alt="" /></a>
+                            </div>
+                        </div>
+                        <h3 class="following-blog-post-title">
+                            <a href="#">
+                                @Model.Post.Title
+                            </a>
+                        </h3>
+
+                        <div class="post-details-text">
+
+                            <p>
+                                @Model.Post.Details
+                            </p>
+
+                            <blockquote class="blockquote-box">
+                                <p class="blockquote-text">
+                                    Lorem Ipsum is simply dummy text of the printing and
+                                    types industry's standard dummy text ever and since the 1500s when
+                                    scrambled it to make a type specimen book.
+                                </p>
+                            </blockquote>
+
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                                industry's standard dummy text ever since the 1500s when anden unknown printer took a galley of type and
+                                scrambled it to make a type specimen book. It has and survived not only five centuries, but also the leap
+                                into electronic typesetting, remaining essentially and unchanged. It was popularsed in the 1960 with release
+                                containing Lorem Ipsum passages desktop publishing software.
+                            </p>
+
+                            <div class="blog-details-tag-and-share-area">
+                                <div class="post-tag">
+                                    <a href="#" class="btn-medium fashion">Fashion</a>
+                                    <a href="#" class="btn-medium health">Health</a>
+                                    <a href="#" class="btn-medium travel">Travel</a>
+                                </div>
+                                <ul class="social-share-area">
+                                    <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                    <li><a href="#"><i class="icofont-skype"></i></a></li>
+                                    <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                    <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div><!-- blog details Post End -->
+            </div>
+            <div class="blog-details-col-4">
+                <div class="following-author-area">
+                    <div class="author-image">
+                        <img src="~/home/assets/images/author/author-01.png" alt="">
+                    </div>
+                    <div class="author-title">
+                        <h4><a href="#">@Model.Writer.Name</a></h4>
+                        <p>Author, Dingcode</p>
+                    </div>
+                    <div class="author-details">
+                        <p>
+                            Lorem psum has been industry
+                            standard dumy text since the when
+                            and scrambled make specimen
+                            book has survived.
+                        </p>
+
+                        <div class="author-post-share">
+                            <ul class="social-share-area">
+                                <li><a href="#"><i class="icofont-facebook"></i></a></li>
+                                <li><a href="#"><i class="icofont-skype"></i></a></li>
+                                <li><a href="#"><i class="icofont-twitter"></i></a></li>
+                                <li><a href="#"><i class="icofont-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="button-box">
+                            <a href="~/home/WritersPosts/@Model.Writer.ID" class="btn">View Profile <i class="icofont-long-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div> <!-- Blog Details Wrapper End -->

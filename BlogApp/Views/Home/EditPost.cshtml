@@ -1,0 +1,104 @@
+﻿@using BlogApp.Models.Entities;
+@model Post
+@{
+    ViewData["Title"] = "EditPost";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+}
+
+
+<form action="~/home/editpost" method="post">
+    <input type="hidden" name="ID" value=@Model.ID>
+    <input type="hidden" name="WriterID" value=@Model.WriterID>
+    <input type="hidden" name="CategoryID" value=@Model.CategoryID>
+    
+    <div class="share-your-thinking-area section-space--ptb_80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="share-thinking-title">
+                        <h3 style="color:green">@ViewBag.PostSaved</h3>
+                        <h2 class="title">Edit Your Post</h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="title-write">
+                        <p>Write Your Title</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="write-content-box">
+                        <h6><input type="text" class="form form-control" name="Title" placeholder="Title" value=@Model.Title></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="title-write">
+                        <p>Description</p>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="write-content-box">
+                        <p><textarea type="text" rows="15" class="form form-control" name="Details" placeholder="Details">@Model.Details</textarea></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="title-write">
+                        <p>Write Your Photo Link</p>
+
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="write-content-box">
+                        <h6><input type="text" class="form form-control" name="PhotoLink" placeholder="PhotoLink" value=@Model.PhotoLink></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="title-write">
+                        <p>Category</p>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="write-content-box">
+                        <div class="post-write-tag">
+                            <a href="#">Design</a>
+                            <a href="#">Technology</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Company</a>
+                            <a href="#">Creative</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-9">
+
+                    <div class="conditon-buttom-wrap">
+                        <p class="conditon-note">
+                            <span class="title">Note:</span> Printing and typesetting industry lorem Ipsum has been the standard
+                            dummy text ever since the 1500s when anden book.
+                        </p>
+
+                        <div class="button-box">
+                            <button type="submit" class="btn-large btn-primary">Save Changes<i class="icofont-long-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</form>
